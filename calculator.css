@@ -63,6 +63,7 @@
   }
   .calculator-grid {
     display: grid;
+    padding: 0.3rem;
     min-height: fit-content;
     min-width: fit-content;
     justify-content: center;
