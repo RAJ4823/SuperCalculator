@@ -137,9 +137,58 @@ deleteBtn.addEventListener('click' , () => {
 });
 allClearBtn.addEventListener('click' , () => {
     calculator.clear();
-    calculator.updateDisplay();
+    // calculator.updateDisplay();
 });
 equalsBtn.addEventListener('click' , () => {
     calculator.calculate();
     calculator.updateDisplay();
 });
+
+document.addEventListener('keydown', (btn) => {
+    console.log(`Key : ${btn.code}`);
+    let key = btn.code.charAt(btn.code.length -1);
+
+    if(!isNaN(key)) {
+        calculator.appendNumber(key);
+        calculator.updateDisplay();
+        console.log(key);
+    }
+
+    switch (btn.code) {
+        case 'Delete':
+            calculator.clear();
+            // calculator.updateDisplay();
+            break;
+        case 'Backspace':
+            calculator.deleteNumber();
+            calculator.updateDisplay();
+            break;
+        case 'NumpadEnter' || 'Enter' || 'Equals':
+            calculator.calculate();
+            calculator.updateDisplay();
+            break;
+        case 'NumpadDecimal':
+            calculator.appendNumber('.');
+            calculator.updateDisplay();
+            break;
+        case 'NumpadAdd':
+            calculator.setOperation('+');
+            calculator.updateDisplay();
+            break;
+        case 'NumpadSubstract':
+            calculator.setOperation('-');
+            calculator.updateDisplay();
+            break;
+        case 'NumpadMultiply':
+            calculator.setOperation('*');
+            calculator.updateDisplay();
+            break;
+        case 'NumpadDivide':
+            calculator.setOperation('/');
+            calculator.updateDisplay();
+            break;
+        default:
+            calculator.updateDisplay();
+            break;
+    }
+})
