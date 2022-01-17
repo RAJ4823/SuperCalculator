@@ -12,6 +12,7 @@ class Calculator {
         if(localStorage.getItem('time')) {
             //Display only first time when user use it
             this.currElement.innerText = 'Super Calculator';
+            this.prevElement.innerText = '⚡';
             localStorage.setItem('time', 1);
         }
       
