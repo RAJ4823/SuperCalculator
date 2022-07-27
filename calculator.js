@@ -146,25 +146,24 @@ equalsBtn.addEventListener('click' , () => {
 });
 
 document.addEventListener('keydown', (btn) => {
-    console.log(`Key : ${btn.code}`);
     let key = btn.code.charAt(btn.code.length -1);
 
     if(!isNaN(key)) {
         calculator.appendNumber(key);
         calculator.updateDisplay();
-        console.log(key);
     }
 
     switch (btn.code) {
         case 'Delete':
             calculator.clear();
-            // calculator.updateDisplay();
             break;
         case 'Backspace':
             calculator.deleteNumber();
             calculator.updateDisplay();
             break;
-        case 'NumpadEnter' || 'Enter' || 'Equals':
+        case 'Enter':
+        case 'Equal':
+        case 'NumpadEnter':
             calculator.calculate();
             calculator.updateDisplay();
             break;
@@ -176,16 +175,16 @@ document.addEventListener('keydown', (btn) => {
             calculator.setOperation('+');
             calculator.updateDisplay();
             break;
-        case 'NumpadSubstract':
+        case 'NumpadSubtract':
             calculator.setOperation('-');
             calculator.updateDisplay();
             break;
         case 'NumpadMultiply':
-            calculator.setOperation('*');
+            calculator.setOperation('x');
             calculator.updateDisplay();
             break;
         case 'NumpadDivide':
-            calculator.setOperation('/');
+            calculator.setOperation('÷');
             calculator.updateDisplay();
             break;
         default:
